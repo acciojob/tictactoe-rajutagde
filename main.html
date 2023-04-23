@@ -1,73 +1,39 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
+	<meta charset="UTF-8">
+	<title>Multiplayer Tic Tac Toe</title>
 	<link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 	<div class="container">
-  <div class="input-container">
-    <label for="player-1">Player 1 name:</label>
-    <input type="text" id="player-1">
-    <label for="player-2">Player 2 name:</label>
-    <input type="text" id="player-2">
-    <button id="submit">start the game</button>
-  </div>
-  <div class="board">
-    <h1>Tic Tac Toe</h1>
-    <div class="message"></div>
-    <div class="grid">
-      <div class="cell" id="1"></div>
-      <div class="cell" id="2"></div>
-      <div class="cell" id="3"></div>
-      <div class="cell" id="4"></div>
-      <div class="cell" id="5"></div>
-      <div class="cell" id="6"></div>
-      <div class="cell" id="7"></div>
-      <div class="cell" id="8"></div>
-      <div class="cell" id="9"></div>
-    </div>
-  </div>
-</div>
-
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-		const container = document.querySelector('.container');
-const inputContainer = document.querySelector('.input-container');
-const player1Input = document.querySelector('#player-1');
-const player2Input = document.querySelector('#player-2');
-const submitButton = document.querySelector('#submit');
-const board = document.querySelector('.board');
-const message = document.querySelector('.message');
-const cells = document.querySelectorAll('.cell');
-let currentPlayer;
-let winner;
-
-submitButton.addEventListener('click', () => {
-  const player1Name = player1Input.value.trim();
-  const player2Name = player2Input.value.trim();
-  if (!player1Name || !player2Name) {
-    alert('Please enter names for both players.');
-    return;
-  }
-  currentPlayer = player1Name;
-  inputContainer.style.display = 'none';
-  board.style.display = 'block';
-  message.textContent = `${currentPlayer}, you're up!`;
-});
-
-cells.forEach(cell => {
-  cell.addEventListener('click', () => {
-    if (!cell.textContent && !winner) {
-      cell.textContent = currentPlayer === player1Input.value ? 'X' : 'O';
-      checkWinner();
-      if (winner) {
-        message.textContent
-
-</script>
-
+		<div class="input">
+			<label for="player-1">Player 1:</label>
+			<input type="text" id="player-1" placeholder="Enter name">
+			<label for="player-2">Player 2:</label>
+			<input type="text" id="player-2" placeholder="Enter name">
+			<button id="submit">Submit</button>
+		</div>
+		<div class="board">
+			<h1>Tic Tac Toe</h1>
+			<div class="message"></div>
+			<div class="row">
+				<div class="cell" id="1"></div>
+				<div class="cell" id="2"></div>
+				<div class="cell" id="3"></div>
+			</div>
+			<div class="row">
+				<div class="cell" id="4"></div>
+				<div class="cell" id="5"></div>
+				<div class="cell" id="6"></div>
+			</div>
+			<div class="row">
+				<div class="cell" id="7"></div>
+				<div class="cell" id="8"></div>
+				<div class="cell" id="9"></div>
+			</div>
+		</div>
+	</div>
+	<script src="script.js"></script>
 </body>
-
 </html>
